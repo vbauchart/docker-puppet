@@ -21,6 +21,9 @@ RUN curl -o puppet.deb -s https://apt.puppetlabs.com/puppetlabs-release-trusty.d
 RUN apt-get update -q 2 && DEBIAN_FRONTEND=noninteractive \
     apt-get install --yes -q 2 puppet >/dev/null
 
+ADD conf/puppet/puppet.conf /etc/puppet/
+ADD conf/puppet/hiera.yaml /etc/puppet/
+
 # Install startup script for adding the cron job
 ADD scripts/50_add_puppet_cron.sh /etc/my_init.d/
 RUN chmod +x /etc/my_init.d/50_add_puppet_cron.sh
