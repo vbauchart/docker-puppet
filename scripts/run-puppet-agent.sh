@@ -3,7 +3,7 @@
 # load environment variables
 source /etc/container_environment.sh
 
-puppet_agent_args="-l syslog -o --no-daemonize --waitforcert 120"
+puppet_agent_args="-l syslog -o --no-daemonize"
 
 # if there is a puppet environment defined, append the environment parameter
 if [ ! -z "$PUPPET_AGENT_ENVIRONMENT" ]; then

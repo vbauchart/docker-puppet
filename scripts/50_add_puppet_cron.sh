@@ -12,7 +12,9 @@ SHELL=/bin/bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin
 
 @reboot root /sbin/run-puppet-agent
-$PUPPET_AGENT_CRON root /sbin/run-puppet-agent
+
+# uncomment to run every 30min
+#$PUPPET_AGENT_CRON root /sbin/run-puppet-agent
 EOF
 
 echo "$cronscript" > /etc/cron.d/puppet && chmod +x /etc/cron.d/puppet
